@@ -1,0 +1,28 @@
+class Solution {
+public:
+    bool isToeplitzMatrix(vector<vector<int>>& matrix){
+    int m = matrix.size();
+    int n = matrix[0].size();
+    for(int i = 0; i < m; ++i){
+        int val = matrix[i][0];
+        int r = i, c = 0;
+        while(r < m && c < n){
+            if(matrix[r][c] != val) return false;
+            ++r;
+            ++c;
+        }
+    }
+    for(int i = 1; i < n; ++i){
+        int val = matrix[0][i];
+        int r = 0, c = i;
+        while(r < m && c < n){
+            if(matrix[r][c] != val) return false;
+            ++r;
+            ++c;
+        }
+    }
+
+    return true;
+}
+
+};
